@@ -15,7 +15,7 @@ RUN apt-get update \
 RUN useradd -ms /bin/bash ci
 USER ci
 ENV HOME /home/ci
-WORKDIR /home/ci
+WORKDIR /home/ci/project
 RUN composer global require phpunit/phpunit
 
 ENV PATH /home/ci/.composer/vendor/bin:$PATH
