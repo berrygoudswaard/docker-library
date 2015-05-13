@@ -1,0 +1,29 @@
+{
+  "name": "docker-library",
+  "version": "1.0.0",
+  "description": "This file is used to build the dist files",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt-cli": "^0.1.13",
+    "grunt-string-replace": "^1.2.0",
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-string-replace": "^1.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berrygoudswaard/docker-library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berrygoudswaard/docker-library/issues"
+  },
+  "homepage": "https://github.com/berrygoudswaard/docker-library#readme"
+}
