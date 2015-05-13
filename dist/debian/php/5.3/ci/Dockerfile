@@ -88,6 +88,7 @@ RUN git clone git://github.com/mkoppanen/imagick.git /usr/src/php/ext/imagick \
 RUN useradd -ms /bin/bash ci \
     && echo '#!/bin/bash' > /tmp/run.sh \
     && echo 'service mysql start \' >> /tmp/run.sh \
+    && echo '&& chown ci:ci -R  $HOME \' >> /tmp/run.sh \
     && echo '&& su ci -c "export PATH=$PATH && /tmp/ci.sh"' >> /tmp/run.sh \
     && chmod +x /tmp/run.sh
 
@@ -96,8 +97,7 @@ RUN mkdir $HOME/bin \
     && $HOME/bin/composer global require \
         phpunit/phpunit \
         squizlabs/php_codesniffer \
-        berrygoudswaard/coverage-reporter \
-    && chown ci:ci -R $HOME
+        berrygoudswaard/coverage-reporter
 
 WORKDIR $HOME/project
 
