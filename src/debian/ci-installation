@@ -57,7 +57,8 @@ RUN mkdir -p $PHP_INI_DIR/conf.d \
     && make \
     && make install \
     && make clean \
-    && echo 'pdo_mysql.default_socket=/var/run/mysqld/mysqld.sock' > /usr/local/etc/php/conf.d/ext-pd_mysql.ini
+    && echo 'pdo_mysql.default_socket=/var/run/mysqld/mysqld.sock' > /usr/local/etc/php/conf.d/ext-pd_mysql.ini \
+    && echo 'date.timezone = UTC' > /usr/local/etc/php/conf.d/date.timezone.ini
 
 RUN git clone --branch $XDEBUG_BRANCH git://github.com/xdebug/xdebug.git /usr/src/php/ext/xdebug \
     && cd /usr/src/php/ext/xdebug \
