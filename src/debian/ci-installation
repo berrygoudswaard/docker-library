@@ -87,6 +87,7 @@ RUN mkdir $HOME/bin \
     && curl -sS https://getcomposer.org/installer | php  -- --install-dir=$HOME/bin --filename=composer \
     && $HOME/bin/composer global require \
         phpunit/phpunit \
+        sebastian/phpcpd \
         squizlabs/php_codesniffer \
         berrygoudswaard/coverage-reporter
 
