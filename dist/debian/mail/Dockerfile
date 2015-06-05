@@ -38,7 +38,7 @@ RUN apt-get update \
 	&& sed -i "s/# rewrite_header/rewrite_header/g" /etc/spamassassin/local.cf \
     && sed -i -e "s/^\(smtp.*smtpd\)$/\1\n   -o content_filter=spamassassin/g" /etc/postfix/master.cf \
     && sed -i -e "s/^#\(submission.*smtpd\)$/\1\n   -o content_filter=spamassassin/g" /etc/postfix/master.cf \
-	&& sed -i -e "s/ENABLED=0/ENABLED=1/g" -e "s/CRON=0/CRON=1/g" -e "s/OPTIONS=\"--create-prefs --max-children 5 --helper-home-dir\"/OPTIONS=\"--create-prefs --max-children 5 --helper-home-dir=\/var\/lib\/spamassassin -u spamd -g spamd\"/g" /etc/default/spamassassin \
+	&& sed -i -e "s/ENABLED=0/ENABLED=1/g" -e "s/CRON=0/CRON=1/g" -e "s/OPTIONS=\"--create-prefs --max-children 5 --helper-home-dir\"/OPTIONS=\"--create-prefs --max-children 1 --helper-home-dir=\/var\/lib\/spamassassin -u spamd -g spamd\"/g" /etc/default/spamassassin \
 
     && echo "spamassassin unix -     n       n       -       -       pipe" >> /etc/postfix/master.cf \
     && echo "   user=debian-spamd argv=/usr/bin/spamc -f -e /usr/sbin/sendmail -oi -f \${sender} \${recipient}" >> /etc/postfix/master.cf \
