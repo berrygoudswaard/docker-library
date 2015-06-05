@@ -76,6 +76,7 @@ RUN apt-get update \
     && echo "useradd -g mail -m \$SMTP_USER" >> /opt/smtp.sh \
     && echo "echo -e \"\$SMTP_PASSWORD\n\$SMTP_PASSWORD\" | passwd \$SMTP_USER" >> /opt/smtp.sh \
     && echo "sa-update" \
+    && echo "sa-compile" \
     && echo "service rsyslog start" >> /opt/smtp.sh \
     && echo "service saslauthd start" >> /opt/smtp.sh \
     && echo "service postfix start" >> /opt/smtp.sh \

@@ -37,6 +37,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         make \
         pkg-config \
         re2c \
+        ssh-client \
         $EXTRA_PACKAGES \
         --no-install-recommends \
     && rm -r /var/lib/apt/lists/*
