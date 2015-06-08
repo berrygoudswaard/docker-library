@@ -5,7 +5,10 @@ module.exports = function (grunt) {
     grunt.initConfig({
         config: {
             cwd: 'src/',
-            src: '**/Dockerfile',
+            src: [
+                '**/assets/**',
+                '**/Dockerfile'
+            ],
             dest: 'dist/'
         },
         'string-replace': {
