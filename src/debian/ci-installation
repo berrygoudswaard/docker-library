@@ -10,8 +10,10 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         file \
         gcc \
         git \
+        libc-client-dev \
         libc-dev \
         libcurl4-openssl-dev \
+        libkrb5-dev \
         libmagickwand-dev \
         libpcre3 \
         libpcre3-dev \
@@ -49,12 +51,14 @@ RUN mkdir -p $PHP_INI_DIR/conf.d \
         --with-config-file-scan-dir="$PHP_INI_DIR/conf.d" \
         --with-curl \
         --with-gd \
+        --with-imap \
+        --with-imap-ssl \
         --with-jpeg-dir=/usr/lib \
+        --with-kerberos \
         --with-openssl \
         --with-pdo-mysql=mysqlnd \
         --with-mysql-sock=/var/run/mysqld/mysqld.sock \
         --with-readline \
-        --with-recode \
         --with-zlib \
         $PHP_EXTRA_EXT \
     && make \
